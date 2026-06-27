@@ -6,7 +6,7 @@ Orchestrates the full pipeline for a single active call:
   2. Builds message history with agent system prompt
   3. Streams to Groq LLM
   4. Detects tool calls and executes them
-  5. Streams text response tokens to ElevenLabs TTS
+  5. Streams text response tokens to Edge TTS
   6. Handles agent transfers (hot-swap system prompt + tools)
 """
 import asyncio
