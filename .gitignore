@@ -28,7 +28,6 @@ dist/
 scratch/
 .tmp/
 temp/
-test_*.py
 
 # OS Files
 .DS_Store
