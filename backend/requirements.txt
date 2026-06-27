@@ -42,3 +42,7 @@ google-auth-oauthlib>=1.2.0
 
 # Misc
 python-multipart>=0.0.9
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
