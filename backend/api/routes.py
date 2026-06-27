@@ -188,7 +188,7 @@ async def voice_call_ws(websocket: WebSocket, call_id: str):
         if tts:
             await tts.flush()
 
-        # Main loop: receive audio from browser, pipe to Deepgram
+        # Main loop: receive audio from browser, pipe to Faster Whisper
         while True:
             try:
                 msg = await asyncio.wait_for(websocket.receive(), timeout=30.0)

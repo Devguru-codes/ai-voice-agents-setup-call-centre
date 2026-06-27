@@ -8,7 +8,7 @@
 This project is an Enterprise-grade AI voice agent platform designed to seamlessly handle inbound and outbound calls, completely replacing traditional call center workflows. It combines features comparable to Retell AI, Bland AI, Vapi, and HubSpot into a single open-source, deployable stack.
 
 ### Core Capabilities
-- **Real-time Voice Pipeline:** Streams audio to/from the browser via WebSockets with sub-second latency. Powered by Deepgram (STT) ⚡ Groq Llama-3 (LLM) ⚡ Edge TTS (TTS).
+- **Real-time Voice Pipeline:** Streams audio to/from the browser via WebSockets with sub-second latency. Powered by Faster Whisper (STT) ⚡ Groq Llama-3 (LLM) ⚡ Edge TTS (TTS).
 - **Multi-Agent Swarm:** Hot-swapping agent personas (Receptionist, Sales, Support) seamlessly during a live call based on conversation context via the `ConversationManager`.
 - **Tool Calling & CRM:** Agents dynamically execute tools during conversations, such as booking Calendar events, sending Emails, and updating the CRM.
 - **RAG & Knowledge Base:** Supports PDF, text, and URL ingestion. Automatically chunks, embeds (via HuggingFace CPU models), and stores them in a local ChromaDB instance for semantic search during calls.
@@ -18,7 +18,7 @@ This project is an Enterprise-grade AI voice agent platform designed to seamless
 ### Tech Stack
 - **Frontend**: Next.js 14, React 18, Tailwind CSS, Recharts
 - **Backend**: Python 3.11, FastAPI, SQLAlchemy, Alembic, Redis (asyncio)
-- **AI/ML**: Groq (Llama-3-70b-versatile), Deepgram, Edge TTS, LangChain, ChromaDB, HuggingFace Sentence Transformers
+- **AI/ML**: Groq (Llama-3-70b-versatile), Faster Whisper, Edge TTS, LangChain, ChromaDB, HuggingFace Sentence Transformers
 - **Infrastructure**: Docker, Docker Compose, PostgreSQL, Redis
 
 ### Architecture Flow
@@ -30,9 +30,9 @@ This project is an Enterprise-grade AI voice agent platform designed to seamless
 ┌─────────────────────▼─────────────────────┐
 │             ConversationManager           │
 │                                           │
-│  ┌────────────┐   ┌────────────┐          │
-│  │ Deepgram   │   │ Groq API   │          │
-│  │ (STT)      ├──►│ Llama-3    ├────────┐ │
+│  ┌──────────────┐ ┌────────────┐          │
+│  │ Faster Whisper │ │ Groq API   │          │
+│  │ (STT)          ├─► Llama-3    ├────────┐ │
 │  └────────────┘   └──────┬─────┘        │ │
 │                          │              │ │
 │                   ┌──────▼─────┐  ┌─────▼─▼────┐

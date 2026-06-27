@@ -2,7 +2,7 @@
 Core real-time conversation manager.
 
 Orchestrates the full pipeline for a single active call:
-  1. Receives final transcript from Deepgram STT
+  1. Receives final transcript from Faster Whisper STT
   2. Builds message history with agent system prompt
   3. Streams to Groq LLM
   4. Detects tool calls and executes them
@@ -95,7 +95,7 @@ class ConversationManager:
 
     async def handle_transcript(self, text: str) -> None:
         """
-        Called when Deepgram emits a final transcript.
+        Called when Faster Whisper emits a final transcript.
         Runs the full LLM + tool-call + TTS pipeline.
         """
         if not text.strip():

@@ -9,7 +9,7 @@ Think of it as: **Retell AI + Bland AI + Vapi + HubSpot** combined into an open-
 This platform features a robust, real-time voice pipeline that streams audio to and from the browser via WebSockets. It uses state-of-the-art models for speech recognition, LLM reasoning, and voice synthesis, all orchestrated asynchronously with sub-second latency.
 
 ### Core Capabilities
-- **Real-time Voice Pipeline**: Deepgram (STT) ⚡ Groq Llama-3 (LLM) ⚡ Edge TTS (TTS).
+- **Real-time Voice Pipeline**: Faster Whisper (STT) ⚡ Groq Llama-3 (LLM) ⚡ Edge TTS (TTS).
 - **Multi-Agent Swarm**: Hot-swapping agent personas (Receptionist, Sales, Support) seamlessly during a live call based on conversation context.
 - **Tool Calling & CRM**: Agents can dynamically execute tools (e.g., booking Calendar events, sending Emails, updating the CRM) during the conversation.
 - **RAG & Knowledge Base**: Upload PDFs, text files, or ingest URLs. The system automatically chunks, embeds (via HuggingFace CPU models), and stores them in a local ChromaDB instance for semantic search during calls.
@@ -26,9 +26,9 @@ This platform features a robust, real-time voice pipeline that streams audio to 
 ┌─────────────────────▼─────────────────────┐
 │             ConversationManager           │
 │                                           │
-│  ┌────────────┐   ┌────────────┐          │
-│  │ Deepgram   │   │ Groq API   │          │
-│  │ (STT)      ├──►│ Llama-3    ├────────┐ │
+│  ┌──────────────┐ ┌────────────┐          │
+│  │ Faster Whisper │ │ Groq API   │          │
+│  │ (STT)          ├─► Llama-3    ├────────┐ │
 │  └────────────┘   └──────┬─────┘        │ │
 │                          │              │ │
 │                   ┌──────▼─────┐  ┌─────▼─▼────┐
@@ -48,7 +48,6 @@ This platform features a robust, real-time voice pipeline that streams audio to 
 - Docker & Docker Compose
 - API Keys for:
   - **Groq** (LLM inference)
-  - **Deepgram** (Speech-to-Text)
 
 ### 2. Configuration
 Copy the environment template and fill in your keys:
@@ -94,7 +93,7 @@ npm run dev
 ## Tech Stack
 - **Frontend**: Next.js 14, React 18, Tailwind CSS, Recharts
 - **Backend**: Python 3.11, FastAPI, SQLAlchemy, Alembic, Redis (asyncio)
-- **AI/ML**: Groq (Llama-3-70b-versatile), Deepgram, Edge TTS, LangChain, ChromaDB, HuggingFace Sentence Transformers
+- **AI/ML**: Groq (Llama-3-70b-versatile), Faster Whisper, Edge TTS, LangChain, ChromaDB, HuggingFace Sentence Transformers
 - **Infrastructure**: Docker, Docker Compose, PostgreSQL, Redis
 
 ## License
